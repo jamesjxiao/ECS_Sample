@@ -9,6 +9,7 @@ using Unity.Burst;
 
 namespace ECS_Quardrant
 {
+    //[DisableAutoCreation]
     public class QuardrantSystem : ComponentSystem
     {
         public const int quardrantYMultiplier = 1000;
@@ -68,7 +69,7 @@ namespace ECS_Quardrant
 
         protected override void OnCreate()
         {
-            quardrantMultiHasMap = new NativeMultiHashMap<int, QuardrantData>(20000, Allocator.TempJob);
+            quardrantMultiHasMap = new NativeMultiHashMap<int, QuardrantData>(20000, Allocator.Persistent);
             base.OnCreate();
         }
 

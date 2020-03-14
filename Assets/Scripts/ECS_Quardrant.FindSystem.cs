@@ -10,15 +10,10 @@ using Unity.Burst;
 namespace ECS_Quardrant
 {
     // 每个Unit.FindTarget使用一个Job，多个Unit可以并行
+    //[DisableAutoCreation]
     public class FindTargetSystem : JobComponentSystem
     {
         #region job define
-        private struct EntityWithPosition
-        {
-            public Entity entity;
-            public float3 position;
-        }
-
         [RequireComponentTag(typeof(Unit))]
         [ExcludeComponent(typeof(HasTarget))]
         [BurstCompile]
